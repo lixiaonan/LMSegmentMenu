@@ -15,6 +15,9 @@
     LMSegmentBarConfig *config = [[LMSegmentBarConfig alloc] init];
     config.segmentBarBackColor = [UIColor whiteColor];
     
+    config.isShowMore = NO;
+    config.showMoreItemWidth = 35;
+    
     config.itemNormalFont = [UIFont systemFontOfSize:15];
     config.itemSelectedFont = [UIFont systemFontOfSize:15];
     config.itemNormalColor = [UIColor lightGrayColor];

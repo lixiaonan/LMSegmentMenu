@@ -19,6 +19,12 @@
  *  @param fromIndex 从某个索引
  */
 - (void)segmentBar: (LMSegmentBar *)segmentBar didSelectIndex: (NSInteger)toIndex fromIndex: (NSInteger)fromIndex;
+/**
+ *  显示更多按钮 的点击事件
+ *
+ *  @param showMoreBtn 从某个索引
+ */
+- (void)segmentBar: (LMSegmentBar *)segmentBar showMoreBtnClick:(UIButton *)showMoreBtn;
 
 @end
 

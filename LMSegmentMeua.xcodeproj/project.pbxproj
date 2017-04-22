@@ -15,8 +15,9 @@
 		00D7DB901EAA127800A98F2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00D7DB8E1EAA127800A98F2C /* LaunchScreen.storyboard */; };
 		00D7DBA01EAA12A100A98F2C /* LMSegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB991EAA12A100A98F2C /* LMSegmentBar.m */; };
 		00D7DBA11EAA12A100A98F2C /* LMSegmentBarConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB9B1EAA12A100A98F2C /* LMSegmentBarConfig.m */; };
-		00D7DBA21EAA12A100A98F2C /* LMSementBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB9D1EAA12A100A98F2C /* LMSementBarVC.m */; };
+		00D7DBA21EAA12A100A98F2C /* LMSegmentBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB9D1EAA12A100A98F2C /* LMSegmentBarVC.m */; };
 		00D7DBA31EAA12A100A98F2C /* UIView+SegmentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB9F1EAA12A100A98F2C /* UIView+SegmentBar.m */; };
+		00D7DBA61EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DBA51EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +35,12 @@
 		00D7DB991EAA12A100A98F2C /* LMSegmentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegmentBar.m; sourceTree = "<group>"; };
 		00D7DB9A1EAA12A100A98F2C /* LMSegmentBarConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegmentBarConfig.h; sourceTree = "<group>"; };
 		00D7DB9B1EAA12A100A98F2C /* LMSegmentBarConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegmentBarConfig.m; sourceTree = "<group>"; };
-		00D7DB9C1EAA12A100A98F2C /* LMSementBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSementBarVC.h; sourceTree = "<group>"; };
-		00D7DB9D1EAA12A100A98F2C /* LMSementBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSementBarVC.m; sourceTree = "<group>"; };
+		00D7DB9C1EAA12A100A98F2C /* LMSegmentBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegmentBarVC.h; sourceTree = "<group>"; };
+		00D7DB9D1EAA12A100A98F2C /* LMSegmentBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegmentBarVC.m; sourceTree = "<group>"; };
 		00D7DB9E1EAA12A100A98F2C /* UIView+SegmentBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SegmentBar.h"; sourceTree = "<group>"; };
 		00D7DB9F1EAA12A100A98F2C /* UIView+SegmentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SegmentBar.m"; sourceTree = "<group>"; };
+		00D7DBA41EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegmentRightLeftBtn.h; sourceTree = "<group>"; };
+		00D7DBA51EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegmentRightLeftBtn.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +102,12 @@
 				00D7DB991EAA12A100A98F2C /* LMSegmentBar.m */,
 				00D7DB9A1EAA12A100A98F2C /* LMSegmentBarConfig.h */,
 				00D7DB9B1EAA12A100A98F2C /* LMSegmentBarConfig.m */,
-				00D7DB9C1EAA12A100A98F2C /* LMSementBarVC.h */,
-				00D7DB9D1EAA12A100A98F2C /* LMSementBarVC.m */,
+				00D7DB9C1EAA12A100A98F2C /* LMSegmentBarVC.h */,
+				00D7DB9D1EAA12A100A98F2C /* LMSegmentBarVC.m */,
 				00D7DB9E1EAA12A100A98F2C /* UIView+SegmentBar.h */,
 				00D7DB9F1EAA12A100A98F2C /* UIView+SegmentBar.m */,
+				00D7DBA41EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.h */,
+				00D7DBA51EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.m */,
 			);
 			path = LMSegmentMenu;
 			sourceTree = "<group>";
@@ -181,10 +186,11 @@
 				00D7DB881EAA127800A98F2C /* ViewController.m in Sources */,
 				00D7DB851EAA127800A98F2C /* AppDelegate.m in Sources */,
 				00D7DBA01EAA12A100A98F2C /* LMSegmentBar.m in Sources */,
+				00D7DBA61EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.m in Sources */,
 				00D7DBA11EAA12A100A98F2C /* LMSegmentBarConfig.m in Sources */,
 				00D7DB821EAA127800A98F2C /* main.m in Sources */,
 				00D7DBA31EAA12A100A98F2C /* UIView+SegmentBar.m in Sources */,
-				00D7DBA21EAA12A100A98F2C /* LMSementBarVC.m in Sources */,
+				00D7DBA21EAA12A100A98F2C /* LMSegmentBarVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,7 @@
 
 #import "LMSegmentBar.h"
 #import "UIView+SegmentBar.h"
-
-
-//#define kMinMargin 30
+#import "LMSegmentRightLeftBtn.h"
 
 @interface LMSegmentBar ()
 {
@@ -30,6 +28,8 @@
 @property (nonatomic, weak) UIView *bottomDividingLineView;
 
 @property (nonatomic, strong) LMSegmentBarConfig *config;
+/** 显示更多按钮 */
+@property (nonatomic, strong) LMSegmentRightLeftBtn *showMoreBtn;
 
 @end
 
@@ -79,7 +79,6 @@
     
     [self setNeedsLayout];
     [self layoutIfNeeded];
-    
     
 }
 
@@ -174,6 +173,14 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.contentView.frame = self.bounds;
+    
+    if (!self.config.isShowMore) {
+        self.contentView.frame = self.bounds;
+        self.showMoreBtn.segmentBar_width = -1;
+    } else {
+        self.contentView.frame = CGRectMake(0, 0, self.segmentBar_width - self.config.showMoreItemWidth, self.segmentBar_height);
+        self.showMoreBtn.frame = CGRectMake(self.segmentBar_width - self.config.showMoreItemWidth, 0, self.config.showMoreItemWidth, self.segmentBar_height);
+    }
     
     /*
      三种按钮布局方式
@@ -278,6 +285,22 @@
     }
 }
 
+#pragma mark - Click Action
+- (void)showMoreBtnClick:(UIButton *)btn {
+    
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+//        [self showDetailPane];
+    } else {
+//        [self hideDetailPane];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(segmentBar:showMoreBtnClick:)]) {
+        [self.delegate segmentBar:self showMoreBtnClick:btn];
+    }
+    
+}
+
 #pragma mark - 懒加载
 
 - (NSMutableArray<UIButton *> *)itemBtns {
@@ -325,6 +348,18 @@
         _config = [LMSegmentBarConfig defaultConfig];
     }
     return _config;
+}
+
+- (LMSegmentRightLeftBtn *)showMoreBtn {
+    if (!_showMoreBtn) {
+        LMSegmentRightLeftBtn *showMoreBtn = [[LMSegmentRightLeftBtn alloc] init];
+        [showMoreBtn addTarget:self action:@selector(showMoreBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:showMoreBtn];
+        _showMoreBtn = showMoreBtn;
+        
+        showMoreBtn.backgroundColor = [UIColor redColor];
+    }
+    return _showMoreBtn;
 }
 
 

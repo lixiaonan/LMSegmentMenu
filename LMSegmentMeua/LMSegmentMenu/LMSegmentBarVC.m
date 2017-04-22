@@ -6,17 +6,17 @@
 //  Copyright © 2016年 李小南. All rights reserved.
 //
 
-#import "LMSementBarVC.h"
+#import "LMSegmentBarVC.h"
 #import "UIView+SegmentBar.h"
 
-@interface LMSementBarVC ()<LMSegmentBarDelegate, UIScrollViewDelegate>
+@interface LMSegmentBarVC ()<LMSegmentBarDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIScrollView *contentView;
 
 @property (nonatomic, assign) BOOL isInitial;
 @end
 
-@implementation LMSementBarVC
+@implementation LMSegmentBarVC
 - (LMSegmentBar *)segmentBar {
     if (!_segmentBar) {
         LMSegmentBar *segmentBar = [LMSegmentBar segmentBarWithFrame:CGRectZero];
@@ -60,8 +60,37 @@
 - (void)viewWillAppear:(BOOL)animated {
     if (_isInitial == NO) {
         _isInitial = YES;
-        self.segmentBar.selectIndex = 0;
+        self.segmentBar.selectIndex = self.defaultSelectedIndex;
     }
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    
+    if (self.segmentBar.superview == self.view) {
+        self.segmentBar.frame = CGRectMake(0, 60, self.view.segmentBar_width, 35);
+        
+        CGFloat contentViewY = self.segmentBar.segmentBar_y + self.segmentBar.segmentBar_height;
+        CGRect contentFrame = CGRectMake(0, contentViewY, self.view.segmentBar_width, self.view.segmentBar_height - contentViewY);
+        self.contentView.frame = contentFrame;
+        self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.segmentBar_width, 0);
+        
+        return;
+    }
+    
+    
+    CGRect contentFrame = CGRectMake(0, 0,self.view.segmentBar_width,self.view.segmentBar_height);
+    self.contentView.frame = contentFrame;
+    self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.segmentBar_width, 0);
+    
+    
+    // 其他的控制器视图, 大小
+    // 遍历所有的视图, 重新添加, 重新进行布局
+    // 注意: 1个视图
+    //
+    
+    //    self.segmentBar.selectIndex = self.segmentBar.selectIndex;
+    
 }
 
 
@@ -102,36 +131,6 @@
     
 }
 
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    
-    if (self.segmentBar.superview == self.view) {
-        self.segmentBar.frame = CGRectMake(0, 60, self.view.segmentBar_width, 35);
-        
-        CGFloat contentViewY = self.segmentBar.segmentBar_y + self.segmentBar.segmentBar_height;
-        CGRect contentFrame = CGRectMake(0, contentViewY, self.view.segmentBar_width, self.view.segmentBar_height - contentViewY);
-        self.contentView.frame = contentFrame;
-        self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.segmentBar_width, 0);
-
-        return;
-    }
-    
-    
-    CGRect contentFrame = CGRectMake(0, 0,self.view.segmentBar_width,self.view.segmentBar_height);
-    self.contentView.frame = contentFrame;
-     self.contentView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.segmentBar_width, 0);
-    
-    
-    // 其他的控制器视图, 大小
-    // 遍历所有的视图, 重新添加, 重新进行布局
-    // 注意: 1个视图
-    //
-    
-//    self.segmentBar.selectIndex = self.segmentBar.selectIndex;
-    
-}
-
 #pragma mark - 选项卡代理方法
 - (void)segmentBar:(LMSegmentBar *)segmentBar didSelectIndex:(NSInteger)toIndex fromIndex:(NSInteger)fromIndex
 {
@@ -141,6 +140,12 @@
     
 //    NSLog(@"%zd----%zd", fromIndex, toIndex);
     [self showChildVCViewsAtIndex:toIndex];
+}
+
+- (void)segmentBar:(LMSegmentBar *)segmentBar showMoreBtnClick:(UIButton *)showMoreBtn {
+    if ([self.delegate respondsToSelector:@selector(segmentBarVC:showMoreBtnClick:)]) {
+        [self.delegate segmentBarVC:self showMoreBtnClick:showMoreBtn];
+    }
 }
 
 

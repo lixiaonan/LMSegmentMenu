@@ -7,19 +7,19 @@
 //
 
 #import "ViewController.h"
-#import "LMSementBarVC.h"
+#import "LMSegmentBarVC.h"
 
 #define kScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kScreenHeight [[UIScreen mainScreen] bounds].size.height
-@interface ViewController ()<LMSementBarVCDelegate>
-@property (nonatomic, weak) LMSementBarVC *segmentBarVC;
+@interface ViewController ()<LMSegmentBarVCDelegate>
+@property (nonatomic, weak) LMSegmentBarVC *segmentBarVC;
 @end
 
 @implementation ViewController
 
-- (LMSementBarVC *)segmentBarVC {
+- (LMSegmentBarVC *)segmentBarVC {
     if (!_segmentBarVC) {
-        LMSementBarVC *vc = [[LMSementBarVC alloc] init];
+        LMSegmentBarVC *vc = [[LMSegmentBarVC alloc] init];
         [self addChildViewController:vc];
         _segmentBarVC = vc;
     }
@@ -39,6 +39,7 @@
     
     self.segmentBarVC.view.frame = CGRectMake(0, 64 + 35, kScreenWidth, kScreenHeight - 64 - 35);
     [self.view addSubview:self.segmentBarVC.view];
+    self.segmentBarVC.defaultSelectedIndex = 2;
     
     
     NSArray *items = @[@"专辑", @"声音", @"下载中", @"你好啊好啊", @"vc5"];
@@ -73,6 +74,8 @@
         config.addBottomDividingLine = NO;
         config.itemSelectedFont = [UIFont systemFontOfSize:18];
         
+        config.isShowMore = YES;
+        
         // 1.平分屏幕
         config.indicatorWidthFixed = YES;
         config.indicatorWidth = kScreenWidth / 3;
@@ -80,23 +83,27 @@
         config.fixedWidth = kScreenWidth / 3;
         
         // 2.从左到右
-        config.indicatorWidthFixed = NO;
-        config.indicatorExtraW = 8;
-        config.itemButtonLayoutType = LMItemButtonLayoutTypeTextWidthAndFixedMargin;
-        config.fixedMargin = 50;
-        
-        // 3.从中间均分
-        config.indicatorWidthFixed = NO;
-        config.indicatorExtraW = 8;
-        config.itemButtonLayoutType = LMItemButtonLayoutTypeTextWidthAndLimitMargin;
-        config.limitMargin = 50;
+//        config.indicatorWidthFixed = NO;
+//        config.indicatorExtraW = 8;
+//        config.itemButtonLayoutType = LMItemButtonLayoutTypeTextWidthAndFixedMargin;
+//        config.fixedMargin = 50;
+//        
+//        // 3.从中间均分
+//        config.indicatorWidthFixed = NO;
+//        config.indicatorExtraW = 8;
+//        config.itemButtonLayoutType = LMItemButtonLayoutTypeTextWidthAndLimitMargin;
+//        config.limitMargin = 50;
         
     }];
 }
 
 #pragma mark - LMSementBarVCDelegate
-- (void)segmentBarVC:(LMSementBarVC *)segmentBarVC didSelectIndex:(NSInteger)toIndex fromIndex:(NSInteger)fromIndex {
+- (void)segmentBarVC:(LMSegmentBarVC *)segmentBarVC didSelectIndex:(NSInteger)toIndex fromIndex:(NSInteger)fromIndex {
     NSLog(@"%zd----%zd", fromIndex, toIndex);
+}
+
+- (void)segmentBarVC:(LMSegmentBarVC *)segmentBarVC showMoreBtnClick:(UIButton *)showMoreBtn {
+    NSLog(@"-----|||%@", showMoreBtn);
 }
 
 

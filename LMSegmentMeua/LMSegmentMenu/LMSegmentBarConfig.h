@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-// 判断发起搜索窗口的来源
+// 选项按钮布局方式
 typedef NS_ENUM(NSInteger, LMItemButtonLayoutType) {
     LMItemButtonLayoutTypeFixedWidth = 1, // 等宽
     LMItemButtonLayoutTypeTextWidthAndLimitMargin, // 宽度随文字变化并有最小间距(中间布局)
@@ -20,6 +20,11 @@ typedef NS_ENUM(NSInteger, LMItemButtonLayoutType) {
 
 
 + (instancetype)defaultConfig;
+
+/** 控制是否显示更多 */
+@property (nonatomic, assign) BOOL isShowMore;
+/** 显示更多按钮的宽度 */
+@property (nonatomic, assign) CGFloat showMoreItemWidth;
 
 /** 背景颜色 */
 @property (nonatomic, strong) UIColor *segmentBarBackColor;
@@ -62,6 +67,7 @@ typedef NS_ENUM(NSInteger, LMItemButtonLayoutType) {
     3.宽度不固定, 宽度随文字宽度变化, 但有固定间距 (默认从左向右分布)
  
  */
+
 /** 选项按钮布局方式 */
 @property (nonatomic, assign) LMItemButtonLayoutType itemButtonLayoutType;
 /** 选项按钮固定的宽度 */
