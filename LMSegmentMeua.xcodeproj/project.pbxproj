@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00BF99F21EAEEC140014E14C /* LMSegmentBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BF99F11EAEEC140014E14C /* LMSegmentBarButton.m */; };
 		00D7DB821EAA127800A98F2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB811EAA127800A98F2C /* main.m */; };
 		00D7DB851EAA127800A98F2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB841EAA127800A98F2C /* AppDelegate.m */; };
 		00D7DB881EAA127800A98F2C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D7DB871EAA127800A98F2C /* ViewController.m */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00BF99F01EAEEC140014E14C /* LMSegmentBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSegmentBarButton.h; sourceTree = "<group>"; };
+		00BF99F11EAEEC140014E14C /* LMSegmentBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSegmentBarButton.m; sourceTree = "<group>"; };
 		00D7DB7D1EAA127800A98F2C /* LMSegmentMeua.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMSegmentMeua.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00D7DB811EAA127800A98F2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00D7DB831EAA127800A98F2C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 			children = (
 				00D7DB981EAA12A100A98F2C /* LMSegmentBar.h */,
 				00D7DB991EAA12A100A98F2C /* LMSegmentBar.m */,
+				00BF99F01EAEEC140014E14C /* LMSegmentBarButton.h */,
+				00BF99F11EAEEC140014E14C /* LMSegmentBarButton.m */,
 				00D7DB9A1EAA12A100A98F2C /* LMSegmentBarConfig.h */,
 				00D7DB9B1EAA12A100A98F2C /* LMSegmentBarConfig.m */,
 				00D7DB9C1EAA12A100A98F2C /* LMSegmentBarVC.h */,
@@ -184,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00D7DB881EAA127800A98F2C /* ViewController.m in Sources */,
+				00BF99F21EAEEC140014E14C /* LMSegmentBarButton.m in Sources */,
 				00D7DB851EAA127800A98F2C /* AppDelegate.m in Sources */,
 				00D7DBA01EAA12A100A98F2C /* LMSegmentBar.m in Sources */,
 				00D7DBA61EAAFB7F00A98F2C /* LMSegmentRightLeftBtn.m in Sources */,

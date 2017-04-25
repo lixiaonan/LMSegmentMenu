@@ -8,6 +8,7 @@
 
 #import "LMSegmentBar.h"
 #import "UIView+SegmentBar.h"
+#import "LMSegmentBarButton.h"
 #import "LMSegmentRightLeftBtn.h"
 
 @interface LMSegmentBar ()
@@ -19,7 +20,7 @@
 @property (nonatomic, weak) UIScrollView *contentView;
 
 /** 添加的按钮数据 */
-@property (nonatomic, strong) NSMutableArray <UIButton *>*itemBtns;
+@property (nonatomic, strong) NSMutableArray <LMSegmentBarButton *>*itemBtns;
 
 /** 指示器 */
 @property (nonatomic, weak) UIView *indicatorView;
@@ -102,7 +103,7 @@
     
     // 根据所有的选项数据源， 创建Button, 添加到内容视图
     for (NSString *item in items) {
-        UIButton *btn = [[UIButton alloc] init];
+        LMSegmentBarButton *btn = [[LMSegmentBarButton alloc] init];
         btn.tag = self.itemBtns.count;
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchDown];
         [btn setTitleColor:self.config.itemNormalColor forState:UIControlStateNormal];
@@ -303,7 +304,7 @@
 
 #pragma mark - 懒加载
 
-- (NSMutableArray<UIButton *> *)itemBtns {
+- (NSMutableArray<LMSegmentBarButton *> *)itemBtns {
     if (!_itemBtns) {
         _itemBtns = [NSMutableArray array];
     }
